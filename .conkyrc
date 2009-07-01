@@ -1,0 +1,68 @@
+ use_xft yes
+    background yes
+    xftfont Consolas:size=10
+    xftalpha 0.8
+    update_interval 1.0
+    total_run_times 0
+    double_buffer yes
+    alignment top_right
+    gap_x 10
+    gap_y 10
+    minimum_size 140 5
+    own_window yes
+    own_window_type normal
+  # own_window_type override
+    own_window_transparent yes
+    own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+    default_color grey
+    default_outline_color white
+    border_margin 4
+    border_width 0
+    stippled_borders 8 
+   
+    TEXT
+${color white}$nodename
+$sysname $kernel on $machine
+${color grey}Czas pracy:${color white} $uptime 
+${color grey}Load:${color white} $loadavg
+${color grey}Temperatura CPU:${color white} $acpitemp stopni C
+${color grey}Częstotliwość CPU:${color white} $freq_g GHz
+${color grey}Data: ${color white}${time %A, %d %B}
+${execpi 600 pogodynka}
+$color$stippled_hr
+${color grey} CPU
+${color grey}${cpugraph cpu0 6B8E23 FFFFFF} 
+${color grey} Rdzeń 1 $alignr Rdzeń 2
+${color grey}${cpugraph cpu1 25,120 6B8E23 FFFFFF} $alignr${color grey}${cpugraph cpu2 25,120 6B8E23 FFFFFF}
+${color grey}Średnie - ${color green}${cpu cpu0}%: ${cpubar cpu0}
+${color grey}Rdzeń 1 - ${color green}${cpu cpu1}%: ${cpubar cpu1}
+${color grey}Rdzeń 2 - ${color green}${cpu cpu2}%: ${cpubar cpu2}
+$color$stippled_hr
+${color grey}Dysk odczyt${alignr}Dysk zapis
+${color grey}${diskiograph_read 25,120 /dev/sda 6B8E23 FFFFFF} $alignr${diskiograph_write /dev/sda 25,120 6B8E23 FFFFFF}
+${color grey}Root: ${color yellow}${fs_used /}/${fs_size /}    ${fs_bar /}
+${color grey}Home: ${color yellow}${fs_used /home}/${fs_size /home} ${fs_bar /home}
+${color grey}Windows: ${color yellow}${fs_used /windows}/${fs_size /windows} ${fs_bar /windows}
+$color$stippled_hr
+${color grey}Ram: ${color orange} $mem/$memmax - $memperc% ${membar}
+${color grey}Swap: ${color orange} $swap/$swapmax - $swapperc% ${swapbar}
+$color$stippled_hr
+${color grey}Procesy:${color red} $processes${tab 20}${color grey}Pracujące:${color red} $running_processes
+${color red}Proces${tab 50} CPU${tab 40}RAM
+${color white}${top_mem name 1}${tab 50}${top_mem cpu 1}${tab 40}${top_mem mem_res 1}
+${color white}${top_mem name 2}${tab 50}${top_mem cpu 2}${tab 40}${top_mem mem_res 2}
+${color white}${top_mem name 3}${tab 50}${top_mem cpu 3}${tab 40}${top_mem mem_res 3}
+${color white}${top_mem name 4}${tab 50}${top_mem cpu 4}${tab 40}${top_mem mem_res 4}
+${color white}${top_mem name 5}${tab 50}${top_mem cpu 5}${tab 40}${top_mem mem_res 5}
+$color$stippled_hr
+${color grey}Sieć ${color white} [${addr wlan0}]
+${color grey}IP:${tab 20}${color white}${execi 600 /home/wowo/scripts/bash/adsl-ip.sh -ip}
+${color grey}Host:${tab 20}${color white}${execi 600 /home/wowo/scripts/bash/adsl-ip.sh -host}
+${color grey}Pobieranie${color white} ${downspeed wlan0} k/s${color grey} $alignr Wysyłanie${color white} ${upspeed wlan0} k/s
+${color grey}${downspeedgraph wlan0 25,120 6B8E23 FFFFFF} $alignr${color grey}${upspeedgraph wlan0 25,120 6B8E23 FFFFFF}
+${color white}${totaldown wlan0} ${color grey}pobrane${color} $alignr${color white}${totalup wlan0} ${color grey}wysłane${color}
+$color$stippled_hr
+${color grey}WiFi ${color white} [${wireless_essid wlan0} @ ${wireless_bitrate wlan0}]
+${color grey}Jakość: ${color green}${wireless_link_qual_perc wlan0}% ${wireless_link_bar wlan0}
+$color$stippled_hr
+${color grey}Bateria: ${color red} ${battery_percent C238}% ${battery_bar C238}

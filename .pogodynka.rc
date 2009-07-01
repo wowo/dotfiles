@@ -1,0 +1,36 @@
+## location code from weather.yahoo.com.
+## It is part of URL, i.e. PLXX0028 in
+## http://weather.yahoo.com/forecast/PLXX0028_c.html
+CODE='PLXX0010'
+
+## WWW browser used to fetch weather cast.
+## Currently supported: w3m, links, links2
+## elinks and lynx
+BROWSER='w3m'
+
+## Range of low/medium/high temperature for
+## temperature icons
+LOWTEMP=5
+HITEMP=25
+
+## Format of output. Available variables:
+## %STATE       Cast in english
+## %STATEPL     Cast in polish
+## %TEMP        Temperature
+## %FTEMP       Fells like temperature
+## %PRSSR       Pressure
+## %WIND        Direction, speed of wind
+## %HMDT        Humidity
+## %SUNRS       Sunrise
+## %SUNST       Sunset
+## %ICON        Weather icon for conky (weather.ttf needed)
+## %TEMPICON    Temperature icon
+## Use '\n' to brake line.
+FORMAT="%ICON %STATEPL\n%TEMPICON %TEMP (%FTEMP)\nCiśnienie: %PRSSR\nWschód słońca: %SUNRS\nZachód słońca: %SUNST"
+
+## Size of weather icons in conky
+ICONSIZE=25
+
+## Temperature scale
+## Set to 'C' for Celsius scale or 'F' Fahrenheit scale
+SCALE='C'
