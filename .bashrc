@@ -81,7 +81,7 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -lah'
+alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -92,8 +92,84 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-PATH=$PATH:/home/wowo/bin
+PATH=$PATH:~/bin
 export PATH
 
-export GREP_OPTIONS="--exclude-dir=\.svn --color=auto"
+export GREP_OPTIONS="--exclude-dir=\.svn --exclude=tags --color=auto"
 export EDITOR=vim
+
+if [ "$COLORTERM" == "gnome-terminal" ]; then
+    export TERM=xterm-256color
+fi 
+
+export JAVA_HOME=/usr/lib/jvm/java-6-sun 
+alias onet="mtr 213.180.146.27"
+alias mongo="readline-editor mongo"
+#export LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so
+
+mvni()
+{
+  mvn clean install -Dmaven.test.skip=true "${@}"
+}
+
+svndiff()
+{
+  svn diff "${@}" | colordiff | more
+}
+
+svnlog()
+{
+  svn log "${@}" | more
+}
+
+svnst () 
+{
+  svn st "${@}"
+}
+
+qfind ()
+{
+    SEARCHPATH="."
+    if [ -n $2 ]; then 
+      SEARCHPATH=$2
+    fi  
+    find $SEARCHPATH -iname *$1* | grep -v "\.svn"
+}
+
+
+mvni ()
+{
+    mvn clean install -o -Dmaven.test.skip=true "${@}"
+}
+
+export JETTY_HOME=/var/jetty
+
+last_trace ()
+{
+  ls ~/.java/deployment/log/ -t | head -2 | grep trace | xargs -I{} tail $@ ~/.java/deployment/log/{}
+}
+
+
+export FIGNORE=.svn
+
+GRAILS_HOME=~/bin/grails-1.2.1/
+export GRAILS_HOME
+PATH=${GRAILS_HOME}bin:$PATH
+export PATH
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+ 
+function proml {
+  local         RED="\[\033[0;31m\]"
+  local   LIGHT_RED="\[\033[1;31m\]"
+  local      YELLOW="\[\033[0;33m\]"
+  local LIGHT_GREEN="\[\033[1;32m\]"
+  local       WHITE="\[\033[1;37m\]"
+  local  LIGHT_GRAY="\[\033[0;37m\]"
+  local LIGHT_PURPLE="\[\033[1;34m\]"
+  local         TEXT="\[\e[0;m\]"
+  PS1="$YELLOW[\u]$LIGHT_RED[\W]$LIGHT_GRAY \$(parse_git_branch)$TEXT\$ "
+}
+proml
