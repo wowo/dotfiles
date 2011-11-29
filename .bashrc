@@ -183,4 +183,12 @@ function qfind {
   find $dir -iname *$1*
 }
 
+function qgrep {
+  if [ -z $2 ]; then
+    dir="."
+  else
+    dir=$2
+  fi
+  grep -rin $1 $dir
+}
 GREP_OPTIONS="--color=auto"
