@@ -173,3 +173,14 @@ function proml {
   PS1="$YELLOW[\u]$LIGHT_RED[\W]$LIGHT_GRAY \$(parse_git_branch)$TEXT\$ "
 }
 proml
+
+function qfind {
+  if [ -z $2 ]; then
+    dir="."
+  else
+    dir=$2
+  fi  
+  find $dir -iname *$1*
+}
+
+GREP_OPTIONS="--color=auto"
