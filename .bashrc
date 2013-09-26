@@ -3,7 +3,7 @@
 # below are listed only additions to standard Ubuntu's .bashrc
 #
 # run with:
-# curl https://raw.github.com/wowo/dotfiles/master/.bashrc >> ~/.bashrc
+# curl https://raw.github.com/wowo/dotfiles/master/.bashrc >> ~/.bashrc && source ~/.bashrc 
 
 function qfind {
   if [ -z $2 ]; then
