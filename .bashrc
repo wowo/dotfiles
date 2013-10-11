@@ -36,5 +36,7 @@ proml
 alias qtree="tree -L 2 -hs --dirsfirst"
 alias sock='echo "export SSH_AUTH_SOCK=$SSH_AUTH_SOCK"'
 
-FIGNORE=.htaccess:.svn:.git
-GREP_OPTIONS="--color=auto"
+export FIGNORE=.htaccess:.svn:.git
+export GREP_OPTIONS="--color=auto"
+export EDITOR=vim
+export VISUAL=vim
