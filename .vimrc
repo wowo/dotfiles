@@ -42,5 +42,5 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 filetype plugin on
 
 " below needs xoria256 installed
-set t_Co=256
-colorscheme xoria256
+" set t_Co=256
+" colorscheme xoria256
