@@ -1,0 +1,14 @@
+[user]
+    name = Wojciech Sznapka
+    email = wojciech@sznapka.pl
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    who = shortlog -s --
+    lg = log --oneline --format=\"%h  %Cblue%an%Creset  %Cgreen%ar%Creset  %s\"
+[color]
+    ui = auto
+[log]
+    abbrevCommit = true
