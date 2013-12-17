@@ -40,3 +40,8 @@ export FIGNORE=.htaccess:.svn:.git
 export GREP_OPTIONS="--color=auto"
 export EDITOR=vim
 export VISUAL=vim
+
+function lvim {
+   vim `echo $1 | awk -F':' '{print $1 " +"$2}'`
+}
+
