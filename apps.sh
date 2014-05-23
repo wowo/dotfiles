@@ -13,4 +13,5 @@ sudo apt-get install npm
 
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
-sudo npm install grunt
+sudo npm install -g grunt-cli
+sudo npm install -g bower
