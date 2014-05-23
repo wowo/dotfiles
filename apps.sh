@@ -14,7 +14,7 @@ curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 sudo npm install -g grunt-cli
 sudo npm install -g bower
-
 sudo gem install compass
 
+sudo apt-get install phpunit
 sudo a2enmod rewrite headers
