@@ -1,6 +1,6 @@
 # basic apps
 
-sudo apt-get install curl vim tree htop terminator opnejdk-7-jdk httpie
+sudo apt-get install curl vim tree htop terminator opnejdk-7-jdk httpie multitail
 
 # lamp
 
