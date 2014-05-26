@@ -1,20 +1,14 @@
-# basic apps
+#!/bin/bash
 
-sudo apt-get install curl vim tree htop terminator opnejdk-7-jdk httpie multitail
-
-# lamp
-
-sudo apt-get install libapache2-mod-php5 
-sudo apt-get install  mysql-client mysql-server mysql-workbench
-sudo mv composer.phar /usr/local/bin/composer
-sudo apt-get install npm nodejs nodejs-legacy
-
+sudo apt-get install curl vim tree htop terminator openjdk-7-jdk httpie multitail libapache2-mod-php5 mysql-client mysql-server mysql-workbench npm nodejs nodejs-legacy phpunit
 
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
+
 sudo npm install -g grunt-cli
 sudo npm install -g bower
+
 sudo gem install compass
 
-sudo apt-get install phpunit
 sudo a2enmod rewrite headers
+sudo service apache2 restart
