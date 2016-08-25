@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get install curl vim git tree htop terminator httpie multitail xsel 
+sudo apt-get install curl vim git tree htop terminator httpie multitail xsel python-pip
 
 sudo apt-get install oracle-java8-installer
 sudo apt-get install libapache2-mod-php5 phpunit mysql-client mysql-server mysql-workbench\
